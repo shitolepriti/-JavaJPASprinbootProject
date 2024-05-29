@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Employee Registration</h1>
+	<form th:action="@{/status}"  th:object="${employee}" method ="post">
+		<div>
+			<label for="name">Employee Name</label> 
+			<input type="text"placeholder="Enter Your Name" name="name" th:field="*{name}">
+			<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+			<br>
+			<br>
+			
+			<label for="position">Employee Position</label> 
+			<input type="text"placeholder="Enter Your position" name="position" th:field="*{position}">
+			<span th:if="${#fields.hasErrors('position')}" th:errors="*{position}"></span>
+			<br>
+			<br>
+			
+			<label for="department">Department</label> 
+			<input type="text"placeholder="Enter Your department" name="department" th:field="*{department}">
+			<br>
+			<br>
+			<label for="contactInformation">Contact Information</label> 
+			<input type="text"placeholder="Enter Your contactInformation" name="contactInformation" th:field="*{contactInformation}">
+			<br>
+			<br>
+			<label for="username">User-name</label> 
+			<input type="text"placeholder="Enter Your User Name" name="username" th:field="*{username}">
+			<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+			<br>
+			<br>
+			
+			<label for="password">Password</label> 
+			<input type="text"placeholder="Enter Your Password" name="password" th:field="*{password}">
+			<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+			<br>
+			<br>
+
+			<input type="submit">
+			<p th:if="${param.error}">Enter Valid Details</p>
+		</div>
+
+	</form>
+</body>
+</html>

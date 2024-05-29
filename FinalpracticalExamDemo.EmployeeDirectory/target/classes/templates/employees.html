@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<table>
+<thead>
+<th></th>
+<th>Employee name</th>
+<th>Position</th>
+<th>department</th>
+<th>contact Information</th>
+
+<tbody>
+<tr th:each=" employee:${employeelist}">
+<td th:text="${employee.id}">RollNumber</td>
+<td th:text="${employee.name}">Student Name</td>
+<td th:text="${employee.position}">Position</td>
+<td th:text="${employee.department}">department</td>
+<td th:text="${employee.contactInformation}">department</td>
+<td>
+<form th:action="@{/employee/delete}" method="POST">
+<input type="hidden" name="id" th:value="${employee.id}">
+<button type="submit">delete</button>
+</form>
+</td>
+<td>
+<form th:action="@{/employee/edit}" method="get">
+<input type="hidden" name="id" th:value="${employee.id}">
+<button type="submit">Edit</button>
+
+</form>
+</td>
+</tr>
+</tbody>
+
+</thead>
+</table>
+</body>
+</html>
